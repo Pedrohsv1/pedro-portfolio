@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --radius: 0.625rem;
+  --background: #f3f5f9;
+  --foreground: #1c2333;
+  --card: #dfe4ee;
+  --card-foreground: #1c2333;
+  --popover: #ffffff;
+  --popover-foreground: #1c2333;
+  --primary: #1f5bff;
+  --primary-foreground: #ffffff;
+  --secondary: #e6eaf2;
+  --secondary-foreground: #1c2333;
+  --muted: #e6eaf2;
+  --muted-foreground: #6b7385;
+  --accent: #e6eaf2;
+  --accent-foreground: #1c2333;
+  --destructive: #e5484d;
+  --border: #dde2eb;
+  --input: #dde2eb;
+  --ring: #1f5bff;
+}
+
+.dark {
+  --background: #0d111a;
+  --foreground: #eef2f9;
+  --card: #171d2b;
+  --card-foreground: #eef2f9;
+  --popover: #141926;
+  --popover-foreground: #eef2f9;
+  --primary: #3b72ff;
+  --primary-foreground: #ffffff;
+  --secondary: #1c2333;
+  --secondary-foreground: #eef2f9;
+  --muted: #1c2333;
+  --muted-foreground: #8b95a9;
+  --accent: #1c2333;
+  --accent-foreground: #eef2f9;
+  --destructive: #e5484d;
+  --border: #232b3e;
+  --input: #232b3e;
+  --ring: #3b72ff;
+}
+
+@theme inline {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 10px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased transition-colors duration-300;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+  ::selection {
+    @apply bg-primary text-primary-foreground;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes sun-rays-spin {
+  from {
+    transform: rotate(0deg) scale(0.95);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.08);
+  }
+  to {
+    transform: rotate(360deg) scale(0.95);
+  }
+}
+
+@keyframes sun-glow-pulse {
+  0%,
+  100% {
+    transform: scale(0.92);
+  }
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+@keyframes moon-tilt {
+  0%,
+  100% {
+    transform: rotate(-10deg) scale(1);
+  }
+  50% {
+    transform: rotate(8deg) scale(1.06);
+  }
+}
+
+@keyframes star-twinkle {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.6) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15) rotate(45deg);
+  }
+}
+
+.animate-sun-rays {
+  animation: sun-rays-spin 6s linear infinite;
+}
+
+.animate-sun-glow {
+  animation: sun-glow-pulse 2s ease-in-out infinite;
+}
+
+.animate-moon-tilt {
+  animation: moon-tilt 2.6s ease-in-out infinite;
+}
+
+.animate-star-twinkle {
+  animation: star-twinkle 1.6s ease-in-out infinite;
+}
