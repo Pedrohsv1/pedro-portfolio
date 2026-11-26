@@ -1,0 +1,129 @@
+[
+  {
+    "id": "tile-innorisk",
+    "title": "InnoRisk",
+    "tag": "Innomotics · 2025",
+    "category": "project",
+    "tileSize": "featured",
+    "theme": "dark",
+    "projectId": "innorisk",
+    "media": {
+      "type": "image",
+      "src": "/projects/innorisk/cover.webp",
+      "alt": "Mockup desktop e mobile do InnoRisk",
+      "fit": "cover"
+    }
+  },
+  {
+    "id": "tile-gehc",
+    "title": "52º GE Henrique Castriciano",
+    "tag": "Voluntário · 2026",
+    "category": "project",
+    "tileSize": "featured",
+    "theme": "light",
+    "projectId": "gehc",
+    "media": {
+      "type": "video",
+      "src": "/projects/gehc/cover-loop.mp4",
+      "poster": "/projects/gehc/cover-poster.webp",
+      "alt": "Animação em loop do site 52º GE Henrique Castriciano",
+      "fit": "cover"
+    }
+  },
+  {
+    "id": "tile-innotraining",
+    "title": "Innotraining",
+    "tag": "Innomotics · 2026",
+    "category": "project",
+    "tileSize": "featured",
+    "theme": "dark",
+    "projectId": "innotraining",
+    "media": {
+      "type": "image",
+      "src": "/projects/innotraining/cover.webp",
+      "alt": "Mockup do Innotraining no MacBook Pro",
+      "fit": "cover"
+    }
+  },
+  {
+    "id": "tile-ui-sigaa-menu",
+    "title": "SIGAA · Menu Acadêmico",
+    "tag": "Redesign · UI",
+    "category": "ui",
+    "tileSize": "featured",
+    "theme": "light",
+    "media": {
+      "type": "image",
+      "src": "/projects/ui/sigaa-menu-academico.webp",
+      "alt": "Interface do menu acadêmico redesenhado do SIGAA com barra de acessibilidade",
+      "fit": "cover"
+    }
+  },
+  {
+    "id": "tile-gradeplus",
+    "title": "GradePlus",
+    "tag": "Projeto Pessoal · 2026",
+    "category": "project",
+    "tileSize": "featured",
+    "theme": "light",
+    "projectId": "gradeplus",
+    "media": {
+      "type": "image",
+      "src": "/projects/gradeplus/cover-card.webp",
+      "alt": "Mockup desktop do GradePlus no MacBook Pro",
+      "fit": "cover"
+    }
+  },
+  {
+    "id": "tile-ui-innotraining-dashboard",
+    "title": "Innotraining · Dashboard",
+    "tag": "Innomotics · UI",
+    "category": "ui",
+    "tileSize": "landscape",
+    "theme": "light",
+    "media": {
+      "type": "image",
+      "src": "/projects/ui/innotraining-dashboard.webp",
+      "alt": "Dashboard com indicadores e widgets de treinamentos no Innotraining",
+      "fit": "cover"
+    }
+  },
+  {
+    "id": "tile-niko",
+    "title": "NIKO · INCRA & CSA",
+    "tag": "CSA + INCRA · 2022–2024",
+    "category": "project",
+    "tileSize": "featured",
+    "theme": "dark",
+    "projectId": "niko",
+    "media": {
+      "type": "image",
+      "src": "/projects/niko/cover-card.webp",
+      "alt": "Mockup desktop do NIKO exibindo detalhes de um lote",
+      "fit": "cover"
+    }
+  },
+  {
+    "id": "tile-ui-innofactory-kanban",
+    "title": "InnoFactoryQuote · Quadro Kanban",
+    "tag": "Innomotics · UI",
+    "category": "ui",
+    "tileSize": "landscape",
+    "theme": "light",
+    "media": {
+      "type": "image",
+      "src": "/projects/innofactoryquote/kanban-board.webp",
+      "alt": "Quadro Kanban de projetos no InnoFactoryQuote",
+      "fit": "cover"
+    }
+  },
+  {
+    "id": "tile-snippet-magnetic",
+    "title": "Micro-interação Magnética",
+    "tag": "UI Lab · Código",
+    "category": "ui",
+    "tileSize": "landscape",
+    "theme": "light",
+    "snippet": "magnetic"
+  }
+]

@@ -1,0 +1,87 @@
+{
+  "name": "Pedro Varela",
+  "role": "Designer Web Júnior",
+  "tagline": "Projeto interfaces web responsivas, sistemas e dashboards ... do Figma ao código.",
+  "availability": "Aberto a bolsas e vagas júnior",
+  "photo": "/me.jpg",
+  "email": "pedro.varela.dev@gmail.com",
+  "location": "Natal, RN · Brasil",
+  "fullName": "Pedro Henrique de Sousa Varela",
+  "footerNote": "1.204 bolos depois, sem planos de parar",
+  "bio": [
+    "Designer UI/UX e de Produtos Digitais com experiência na criação de interfaces completas, prototipagem de alta fidelidade e construção de Design Systems para plataformas web e industriais complexas.",
+    "Atuei na parceria IMD / Innomotics como Designer Júnior responsável de ponta a ponta pelo design dos sistemas. Uno domínio de Figma com base técnica em front-end e testes de interface para colaborar de perto com engenharia e garantir entregas funcionais, acessíveis e fiéis ao design."
+  ],
+  "links": [
+    {
+      "type": "linkedin",
+      "label": "linkedin.com/in/pedro-varela",
+      "href": "https://www.linkedin.com/in/pedro-varela-185051220/"
+    },
+    {
+      "type": "github",
+      "label": "github.com/pedrohsv1",
+      "href": "https://github.com/pedrohsv1"
+    }
+  ],
+  "experiences": [
+    {
+      "role": "Designer Júnior",
+      "organization": "IMD (UFRN) · Parceria Innomotics",
+      "period": "2025 – 2026",
+      "summary": "Responsável pelo design de sistemas de ponta a ponta para aplicações industriais e corporativas (InnoRisk, Innotraining e Tempo Coletor). Evolução do Design System, mapeamento de jornadas, protótipos interativos no Figma e testes de interface com Cypress."
+    },
+    {
+      "role": "Web & UI/UX Designer (Voluntário)",
+      "organization": "52º GE Henrique Castriciano",
+      "period": "2025 – 2026",
+      "summary": "Design responsivo e desenvolvimento do site institucional do grupo escoteiro em React, Next.js e Tailwind CSS, com foco em experiência mobile e identidade ligada ao lenço do grupo."
+    },
+    {
+      "role": "UI/UX & Front-end Developer",
+      "organization": "CSA (IFRN) · Parceria INCRA",
+      "period": "2022 – 2024",
+      "summary": "Prototipação, arquitetura de informação e pesquisas com usuários no Figma para o sistema de digitalização documental (NIKO), além do desenvolvimento front-end com React, Vite e Styled-Components."
+    }
+  ],
+  "education": [
+    {
+      "course": "Bacharelado em Tecnologia da Informação",
+      "institution": "Instituto Metrópole Digital (IMD · UFRN)",
+      "period": "2024 – 2028 · Em andamento"
+    },
+    {
+      "course": "Técnico em Informática para Internet",
+      "institution": "Instituto Federal do Rio Grande do Norte (IFRN)",
+      "period": "2020 – 2023"
+    }
+  ],
+  "skills": [
+    "Figma",
+    "Design Systems",
+    "UI de Sistemas",
+    "UX Research",
+    "Prototipagem",
+    "Arquitetura de Informação",
+    "Design Responsivo",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Tailwind CSS",
+    "Radix / Shadcn UI",
+    "Styled-Components",
+    "Cypress",
+    "Spring Boot",
+    "Git"
+  ],
+  "languages": [
+    {
+      "name": "Português",
+      "level": "Nativo"
+    },
+    {
+      "name": "Inglês",
+      "level": "Avançado"
+    }
+  ]
+}

@@ -1,115 +1,188 @@
-import { useEffect, useRef, useState } from 'react'
-import { ArrowUpRight, Pin } from 'lucide-react'
+import { useEffect, useRef, type MouseEvent } from 'react'
+import { ArrowUpRight } from 'lucide-react'
 
 import { CoverMockup } from '@/components/cover-mockup'
 import { snippets } from '@/components/snippets'
+import { buildProjectPath, isModifiedClick, navigateTo } from '@/lib/router'
 import { cn } from '@/lib/utils'
-import type { WorkItem } from '@/data/work'
+import type { GalleryTile, TileSize } from '@/types/portfolio'
 
-/**
- * Concentric radii: outer 18px − 6px padding = inner 12px;
- * inner 12px − 4px caption inset = caption 8px.
- */
-export function WorkCard({ item, index }: { item: WorkItem; index: number }) {
-  const Snippet = item.snippet ? snippets[item.snippet] : null
-  const Wrapper = item.href ? 'a' : 'div'
-  const isDirectional = index >= 2
-  const isRightColumn = index % 2 === 1
-  const cardRef = useRef<HTMLElement | null>(null)
-  const [isVisible, setIsVisible] = useState(!isDirectional)
+const aspectByTileSize: Record<TileSize, string> = {
+  square: 'aspect-[1/1.02]',
+  landscape: 'aspect-[16/10]',
+  tall: 'aspect-[4/4.8]',
+  featured: 'aspect-[4/3]',
+}
+
+function getTileHref(tile: GalleryTile): string | undefined {
+  if (!tile.projectId) return undefined
+  return buildProjectPath(tile.projectId, tile.sectionId)
+}
+
+function AutoPlayLoopVideo({
+  src,
+  poster,
+  alt,
+  fit,
+}: {
+  src: string
+  poster?: string
+  alt: string
+  fit?: 'cover' | 'contain'
+}) {
+  const videoRef = useRef<HTMLVideoElement | null>(null)
 
   useEffect(() => {
-    if (!isDirectional) return
-    const el = cardRef.current
-    if (!el) return
+    const video = videoRef.current
+    if (!video) return
 
-    const io = new IntersectionObserver(
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (prefersReducedMotion) return
+
+    const observer = new IntersectionObserver(
       ([entry]) => {
+        if (!entry) return
         if (entry.isIntersecting) {
-          setIsVisible(true)
-        } else if (entry.boundingClientRect.top > 0) {
-          // Reset only when the card goes back below the viewport (scrolling up)
-          setIsVisible(false)
+          void video.play().catch(() => {})
+        } else {
+          video.pause()
         }
       },
-      { threshold: 0.12, rootMargin: '0px 0px -6% 0px' },
+      { rootMargin: '180px 0px', threshold: 0.05 },
     )
 
-    io.observe(el)
-    return () => io.disconnect()
-  }, [isDirectional])
+    observer.observe(video)
+    return () => {
+      observer.disconnect()
+      video.pause()
+    }
+  }, [src])
+
+  return (
+    <video
+      ref={videoRef}
+      src={src}
+      poster={poster}
+      autoPlay
+      loop
+      muted
+      playsInline
+      preload="metadata"
+      aria-label={alt}
+      className={cn(
+        'block size-full transition-transform duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]',
+        fit === 'contain' ? 'object-contain p-4' : 'object-cover object-center',
+      )}
+    />
+  )
+}
+
+/**
+ * Full-bleed Shopify Editions showcase tile with snappy tactile hover growth,
+ * crisp border glow, subtle inner media zoom, and floating glass caption pill.
+ */
+export function WorkCard({
+  tile,
+  priority = false,
+  onZoom,
+}: {
+  tile: GalleryTile
+  priority?: boolean
+  onZoom?: (tile: GalleryTile) => void
+}) {
+  const Snippet = tile.snippet ? snippets[tile.snippet] : null
+  const href = getTileHref(tile)
+  const canZoom = !href && !Snippet && Boolean(onZoom && (tile.media || tile.mockup))
+  const Wrapper = href ? 'a' : canZoom ? 'button' : 'div'
+  const isDarkSurface = tile.theme === 'dark'
+
+  function handleLinkClick(event: MouseEvent<HTMLElement>) {
+    if (!href || isModifiedClick(event)) return
+    event.preventDefault()
+    navigateTo(href)
+  }
 
   return (
     <Wrapper
-      ref={(node: HTMLAnchorElement | HTMLDivElement | null) => {
-        cardRef.current = node
-      }}
-      {...(item.href ? { href: item.href } : {})}
-      style={
-        !isDirectional
-          ? { animationDelay: `${index * 60}ms` }
-          : {
-              opacity: isVisible ? 1 : 0,
-              transform: isVisible
-                ? 'translate3d(0, 0, 0) rotate(0deg) scale(1)'
-                : isRightColumn
-                  ? 'translate3d(28px, 44px, 0) rotate(2.2deg) scale(0.985)'
-                  : 'translate3d(-28px, 44px, 0) rotate(-2.2deg) scale(0.985)',
-              transitionProperty: 'opacity, transform',
-              transitionDuration: isVisible ? '750ms' : '0ms',
-              transitionTimingFunction: 'cubic-bezier(0.22, 1, 0.36, 1)',
-              transitionDelay: isVisible && isRightColumn ? '90ms' : '0ms',
-            }
-      }
+      {...(href ? { href, onClick: handleLinkClick } : {})}
+      {...(canZoom
+        ? {
+            type: 'button' as const,
+            onClick: () => onZoom?.(tile),
+          }
+        : {})}
       className={cn(
-        'group relative block rounded-[18px] bg-card p-1.5 outline-none will-change-[transform,opacity]',
-        !isDirectional && 'animate-fade-up',
+        'group relative block w-full overflow-hidden rounded-[20px] text-left outline-none',
+        'ring-1 ring-black/[0.08] transition-[transform,box-shadow] duration-350 ease-[cubic-bezier(0.22,1,0.36,1)]',
+        'hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_22px_48px_-14px_rgba(0,0,0,0.2)] hover:ring-black/[0.22]',
+        'focus-visible:ring-2 focus-visible:ring-foreground/35',
+        'dark:ring-white/[0.09] dark:hover:shadow-[0_26px_54px_-12px_rgba(0,0,0,0.75)] dark:hover:ring-white/[0.28]',
+        canZoom && 'cursor-zoom-in',
+        isDarkSurface ? 'bg-[#101012]' : 'bg-[#f1f1f3] dark:bg-[#16161a]',
+        aspectByTileSize[tile.tileSize],
       )}
     >
-      {/* Inner media — uniform aspect-[16/10] side-by-side cards, clips the image zoom so corners stay perfect */}
-      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[12px] bg-[#dce1ec] dark:bg-[#111622] [&>*:first-child]:rounded-none">
-        {item.mockup ? (
-          <CoverMockup config={item.mockup} title={item.title} />
-        ) : item.image ? (
-          <img
-            src={item.image}
-            alt={item.title}
-            loading="lazy"
-            className="block size-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-          />
+      {/* Full-bleed media layer */}
+      <div className="relative size-full overflow-hidden">
+        {tile.mockup ? (
+          <CoverMockup config={tile.mockup} title={tile.title} />
+        ) : tile.media ? (
+          tile.media.type === 'video' ? (
+            <AutoPlayLoopVideo
+              src={tile.media.src}
+              poster={tile.media.poster}
+              alt={tile.media.alt}
+              fit={tile.media.fit}
+            />
+          ) : (
+            <img
+              src={tile.media.src}
+              alt={tile.media.alt}
+              loading={priority ? 'eager' : 'lazy'}
+              decoding="async"
+              className={cn(
+                'block size-full transition-transform duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]',
+                tile.media.fit === 'contain'
+                  ? 'object-contain p-5'
+                  : tile.category === 'ui'
+                    ? 'object-cover object-top'
+                    : 'object-cover object-center',
+              )}
+            />
+          )
         ) : Snippet ? (
           <Snippet />
         ) : null}
 
-        {item.pinned && (
-          <span className="absolute top-2.5 right-2.5 z-30 grid size-6 place-items-center rounded-full bg-primary text-white shadow-md">
-            <Pin className="size-3 fill-current" />
-          </span>
-        )}
-
-        {/* Caption: 4px from bottom and sides */}
+        {/* Floating Shopify-style caption pill */}
         <div
           className={cn(
-            'absolute inset-x-1 bottom-1 z-30 flex items-center justify-between rounded-[8px] bg-primary px-3.5 py-2.5 text-[13px] text-white',
-            'pointer-events-none translate-y-1.5 opacity-0 transition-[opacity,translate,background-color,color] duration-300 ease-out',
-            'group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100',
-            'hover:bg-white hover:text-primary',
+            'pointer-events-none absolute inset-x-3 bottom-3 z-20 flex items-center justify-between gap-2.5 rounded-full px-3.5 py-2',
+            'border border-black/[0.08] bg-white/92 text-[#161618] shadow-[0_8px_24px_-8px_rgba(0,0,0,0.18)] backdrop-blur-md',
+            'dark:border-white/[0.1] dark:bg-[#141417]/92 dark:text-[#f4f4f6] dark:shadow-[0_10px_28px_-8px_rgba(0,0,0,0.65)]',
+            'transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]',
+            'sm:translate-y-1.5 sm:opacity-0 sm:group-hover:translate-y-0 sm:group-hover:opacity-100 sm:group-focus-visible:translate-y-0 sm:group-focus-visible:opacity-100',
           )}
         >
-          <span>{item.title}</span>
-          {item.href ? (
-            <ArrowUpRight className="size-4" />
+          <div className="flex min-w-0 items-center gap-2">
+            <span className="truncate text-[12.5px] font-medium tracking-[-0.01em]">{tile.title}</span>
+            <span className="hidden shrink-0 text-[11.5px] text-muted-foreground md:inline">· {tile.tag}</span>
+          </div>
+          {href ? (
+            <span className="grid size-5 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground transition-transform duration-300 group-hover:scale-105">
+              <ArrowUpRight className="size-3 transition-transform duration-300 group-hover:translate-x-[1px] group-hover:-translate-y-[1px]" />
+            </span>
+          ) : Snippet ? (
+            <span className="shrink-0 font-mono text-[10px] tracking-wider text-muted-foreground uppercase">
+              interativo
+            </span>
           ) : (
-            <span className="font-mono text-[10px] tracking-wider uppercase opacity-70">snippet</span>
+            <span className="shrink-0 font-mono text-[10px] tracking-wider text-muted-foreground uppercase">
+              ampliar
+            </span>
           )}
         </div>
       </div>
-
-      {/* Ring as an inset overlay with the exact outer radius */}
-      <span
-        aria-hidden
-        className="pointer-events-none absolute inset-0 z-30 rounded-[inherit] ring-2 ring-primary ring-inset opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100"
-      />
     </Wrapper>
   )
 }

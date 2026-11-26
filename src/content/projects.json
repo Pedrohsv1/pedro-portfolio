@@ -1,0 +1,513 @@
+[
+  {
+    "id": "innorisk",
+    "title": "InnoRisk",
+    "projectType": "Projeto B2B",
+    "subtitle": "Evolução de plataforma industrial para gestão de pedidos, matriz de riscos, planos de ação e relatórios analíticos com IA na Innomotics.",
+    "client": "Innomotics",
+    "role": "Web Designer Júnior",
+    "period": "2025",
+    "heroMedia": {
+      "type": "image",
+      "src": "/projects/innorisk/cover.webp",
+      "alt": "Mockup desktop e mobile do InnoRisk"
+    },
+    "overviewTitle": "O principal desafio",
+    "overview": [
+      "Evoluir o InnoTracker para uma nova aplicação capaz de suportar as dinâmicas e regras de gestão de riscos da operação da fábrica. Incorporando matriz de risco (RPN), planos de ação, follow-up e relatórios analíticos, mantendo a identidade visual e a familiaridade já construídas com o time."
+    ],
+    "sections": [
+      {
+        "id": "antes-e-depois",
+        "title": "Antes e depois",
+        "description": "O sistema anterior carecia de componentes padronizados e tinha grandes espaçamentos que reduziam a densidade útil na tela. Na evolução para o InnoRisk, redesenhamos a interface com foco em componentização, tipografia, hierarquia visual, responsividade e uso semântico de cores.",
+        "highlights": [
+          "Componentes",
+          "Tipografia",
+          "Hierarquia",
+          "Responsividade",
+          "Cores"
+        ],
+        "comparisons": [
+          {
+            "title": "Central de pedidos",
+            "beforeLabel": "Antes · InnoTracker",
+            "afterLabel": "Depois · InnoRisk",
+            "before": {
+              "type": "image",
+              "src": "/projects/innorisk/innotracker-pedidos.webp",
+              "alt": "Tela inicial de pedidos no antigo InnoTracker",
+              "caption": "Cards com grandes blocos vazios, pouca densidade e navegação lateral fixa."
+            },
+            "after": {
+              "type": "image",
+              "src": "/projects/innorisk/pedidos.webp",
+              "alt": "Nova central de pedidos no InnoRisk",
+              "caption": "Cards compactos, filtros com contadores, leitura limpa de progresso e sidebar retrátil."
+            }
+          },
+          {
+            "title": "Acompanhamento de pedido",
+            "beforeLabel": "Antes · InnoTracker",
+            "afterLabel": "Depois · InnoRisk",
+            "before": {
+              "type": "image",
+              "src": "/projects/innorisk/innotracker-pedido.webp",
+              "alt": "Tela de acompanhamento de pedido no antigo InnoTracker",
+              "caption": "Lista de etapas simples, sem indicadores de risco ou ações vinculadas."
+            },
+            "after": {
+              "type": "image",
+              "src": "/projects/innorisk/pedido-aberto.webp",
+              "alt": "Tela de acompanhamento de pedido no InnoRisk",
+              "caption": "Resumo de análise de riscos no topo e contadores de riscos e ações integrados em cada etapa."
+            }
+          }
+        ],
+        "media": []
+      },
+      {
+        "id": "resultado",
+        "title": "Resultado",
+        "description": "O resultado é um sistema mais adequado ao uso intensivo em desktop, com melhor aproveitamento de tela, navegação flexível e interface moderna para o dia a dia na fábrica, reunindo gestão de riscos (RPN), follow-up, consultas com IA, gráficos e adaptação responsiva mobile.",
+        "mosaic": [
+          {
+            "layout": "full",
+            "items": [
+              {
+                "type": "image",
+                "src": "/projects/innorisk/detalhar-risco.webp",
+                "alt": "Tela de detalhamento de risco no InnoRisk",
+                "caption": "Detalhamento de risco com quadro de ações e RPN"
+              }
+            ]
+          },
+          {
+            "layout": "pair",
+            "items": [
+              {
+                "type": "image",
+                "src": "/projects/innorisk/graficos.webp",
+                "alt": "Construtor e preview de gráficos em tempo real no InnoRisk",
+                "caption": "Construtor de gráficos com preview em tempo real"
+              },
+              {
+                "type": "image",
+                "src": "/projects/innorisk/ia-generativa.webp",
+                "alt": "Consulta generativa com IA no InnoRisk",
+                "caption": "Consulta generativa com INNOAI"
+              }
+            ]
+          },
+          {
+            "layout": "trio",
+            "items": [
+              {
+                "type": "image",
+                "src": "/projects/innorisk/m1.webp",
+                "alt": "Detalhamento de etapa no mobile do InnoRisk",
+                "caption": "Detalhamento de etapa no mobile"
+              },
+              {
+                "type": "image",
+                "src": "/projects/innorisk/m2.webp",
+                "alt": "Central de pedidos no mobile do InnoRisk",
+                "caption": "Central de pedidos no mobile"
+              },
+              {
+                "type": "image",
+                "src": "/projects/innorisk/m3.webp",
+                "alt": "Acompanhamento de pedido no mobile do InnoRisk",
+                "caption": "Acompanhamento de pedido no mobile"
+              }
+            ]
+          },
+          {
+            "layout": "pair",
+            "items": [
+              {
+                "type": "image",
+                "src": "/projects/innorisk/adicionar-risco.webp",
+                "alt": "Formulário de cadastro de risco no InnoRisk",
+                "caption": "Cadastro estruturado de risco"
+              },
+              {
+                "type": "image",
+                "src": "/projects/innorisk/follow-up.webp",
+                "alt": "Linha do tempo de follow-up no InnoRisk",
+                "caption": "Linha do tempo hierárquica de follow-up"
+              }
+            ]
+          }
+        ],
+        "media": []
+      }
+    ]
+  },
+  {
+    "id": "gehc",
+    "title": "52º GE Henrique Castriciano",
+    "projectType": "Voluntário",
+    "subtitle": "Site institucional desenvolvido para aproximar pais e novos jovens do movimento escoteiro com uma navegação clara, acessível e fiel à identidade do grupo.",
+    "client": "52º GEHC",
+    "role": "Web & UI/UX Designer",
+    "period": "2025 – 2026",
+    "figmaUrl": "https://www.figma.com/design/AJmCDeMcaVn7KOKdbh2HiP/GEHC-Web?node-id=0-1",
+    "heroMedia": {
+      "type": "image",
+      "src": "/projects/gehc/mockup-macbook-2.webp",
+      "alt": "Página inicial do site 52º GE Henrique Castriciano no desktop"
+    },
+    "overviewTitle": "O principal desafio",
+    "overview": [
+      "Fazer os pais entenderem como funciona o escotismo de forma clara e direta, sem precisar de terceiros para explicar o método ou a rotina do grupo. Ao mesmo tempo, o site precisava atrair novos jovens, que são a base do movimento, com uma apresentação atual e acolhedora."
+    ],
+    "sections": [
+      {
+        "id": "pontos-importantes",
+        "title": "Pontos importantes",
+        "description": "O layout foi pensado com foco em design mobile para atender todos os públicos com a mesma facilidade, de pais consultando o site no celular a jovens conhecendo o grupo. A paleta de cores nasce diretamente do lenço do 52º GEHC, combinando verde, marrom e branco para reforçar pertencimento e identidade em cada tela.",
+        "highlights": [
+          "Design mobile",
+          "Cores do lenço",
+          "Leitura clara",
+          "Identidade do grupo"
+        ],
+        "mosaic": [
+          {
+            "layout": "pair",
+            "items": [
+              {
+                "type": "image",
+                "src": "/projects/gehc/mockup-iphone-1.webp",
+                "alt": "Versão mobile da página inicial do 52º GEHC no iPhone",
+                "caption": "Experiência mobile para todos os públicos"
+              },
+              {
+                "type": "image",
+                "src": "/projects/gehc/mockup-iphone-2.webp",
+                "alt": "Paleta inspirada no lenço do grupo aplicada na interface mobile do 52º GEHC",
+                "caption": "Cores associadas ao lenço do grupo"
+              }
+            ]
+          }
+        ],
+        "media": []
+      },
+      {
+        "id": "resultado",
+        "title": "Resultado",
+        "description": "O site reúne de forma objetiva o que cada ramo faz dentro do escotismo, destaca os projetos pioneiros realizados pelos jovens e conta a história do patrono e do grupo, além de facilitar o primeiro contato para novas inscrições.",
+        "mosaic": [
+          {
+            "layout": "full",
+            "items": [
+              {
+                "type": "image",
+                "src": "/projects/gehc/homepage-cover.webp",
+                "alt": "Página inicial do site 52º GE Henrique Castriciano",
+                "caption": "Página inicial com acesso direto às seções, projetos e contato"
+              }
+            ]
+          },
+          {
+            "layout": "pair",
+            "items": [
+              {
+                "type": "image",
+                "src": "/projects/gehc/secao.webp",
+                "alt": "Página explicando o que cada ramo faz no 52º GEHC",
+                "caption": "O que cada ramo faz · Página de seção"
+              },
+              {
+                "type": "image",
+                "src": "/projects/gehc/projetos-ibp.webp",
+                "alt": "Página de Projeto Pioneiro do 52º GEHC",
+                "caption": "Projeto Pioneiro · Iniciativas do grupo"
+              }
+            ]
+          },
+          {
+            "layout": "pair",
+            "items": [
+              {
+                "type": "image",
+                "src": "/projects/gehc/historia.webp",
+                "alt": "Página Nossa História do 52º GE Henrique Castriciano",
+                "caption": "História do patrono e do 52º GEHC"
+              },
+              {
+                "type": "image",
+                "src": "/projects/gehc/projeto-ibp-detalhe.webp",
+                "alt": "Página de contato e inscrição do 52º GEHC",
+                "caption": "Contato direto para novos jovens e pais"
+              }
+            ]
+          }
+        ],
+        "media": []
+      }
+    ]
+  },
+  {
+    "id": "innotraining",
+    "title": "Innotraining",
+    "projectType": "Projeto B2B",
+    "subtitle": "Plataforma corporativa da Innomotics para monitorar, agendar, solicitar e avaliar treinamentos de colaboradores em um fluxo contínuo.",
+    "client": "Innomotics",
+    "role": "UI/UX Designer",
+    "period": "2026",
+    "figmaUrl": "https://www.figma.com/design/sh28037PqRldnb7ggYgTcL/INNOTRAINING?node-id=294-731",
+    "heroMedia": {
+      "type": "image",
+      "src": "/projects/innotraining/cover.webp",
+      "alt": "Capa do projeto Innotraining no MacBook Pro"
+    },
+    "overviewTitle": "O principal desafio",
+    "overview": [
+      "Monitorar, agendar e solicitar treinamentos para cada colaborador da empresa dentro de um fluxo amplo que também cobre vencimentos, ASO e avaliação de eficácia. O desafio foi organizar todas essas etapas em uma interface clara e ágil para o dia a dia das equipes operacional e administrativa."
+    ],
+    "sections": [
+      {
+        "id": "fluxo",
+        "title": "Fluxo de treinamento e avaliação",
+        "description": "Para dar clareza a um processo extenso sem sobrecarregar quem opera o sistema, os fluxos foram divididos entre controle na ficha do colaborador, importação em massa com validação de erros e modais objetivos para análise de eficácia e feedback de conhecimentos.",
+        "highlights": [
+          "Monitoramento de validades",
+          "Agendamento e solicitações",
+          "Importação com validação",
+          "Avaliação de eficácia"
+        ],
+        "media": [
+          {
+            "type": "image",
+            "src": "/projects/innotraining/modal-efficacy.webp",
+            "alt": "Modal de detalhes do treinamento e análise de eficácia no Innotraining",
+            "caption": "Detalhes do treinamento e análise de eficácia",
+            "aspect": "modal"
+          },
+          {
+            "type": "image",
+            "src": "/projects/innotraining/modal-feedback.webp",
+            "alt": "Modal de feedback e avaliação de conhecimentos do colaborador",
+            "caption": "Feedback e avaliação de conhecimentos",
+            "aspect": "modal"
+          }
+        ]
+      },
+      {
+        "id": "resultado",
+        "title": "Resultado",
+        "description": "O Innotraining centraliza o ciclo inteiro de capacitação na empresa, unindo a ficha completa do colaborador, o diretório com filtros combinados, a importação validada de planilhas e o painel de indicadores de vencimento.",
+        "mosaic": [
+          {
+            "layout": "full",
+            "items": [
+              {
+                "type": "image",
+                "src": "/projects/innotraining/colaborador-details.webp",
+                "alt": "Ficha completa de colaborador com cargo, ASO, treinamentos e conhecimentos no Innotraining",
+                "caption": "Ficha do colaborador com cargo, ASO, treinamentos e conhecimentos"
+              }
+            ]
+          },
+          {
+            "layout": "pair",
+            "items": [
+              {
+                "type": "image",
+                "src": "/projects/innotraining/colaboradores-list.webp",
+                "alt": "Listagem de colaboradores com filtros operacionais e administrativos no Innotraining",
+                "caption": "Diretório de colaboradores com filtros rápidos"
+              },
+              {
+                "type": "image",
+                "src": "/projects/innotraining/import-colaboradores.webp",
+                "alt": "Prévia de importação em massa com validação de erros linha a linha",
+                "caption": "Importação em massa com validação de erros"
+              }
+            ]
+          },
+          {
+            "layout": "pair",
+            "items": [
+              {
+                "type": "image",
+                "src": "/projects/innotraining/add-colaborador.webp",
+                "alt": "Tela de cadastro manual de colaborador no Innotraining",
+                "caption": "Cadastro individual de colaborador"
+              },
+              {
+                "type": "image",
+                "src": "/projects/ui/innotraining-dashboard.webp",
+                "alt": "Dashboard de treinamentos finalizados e próximos vencimentos no Innotraining",
+                "caption": "Dashboard de acompanhamento e vencimentos"
+              }
+            ]
+          }
+        ],
+        "media": []
+      }
+    ]
+  },
+  {
+    "id": "gradeplus",
+    "title": "GradePlus",
+    "projectType": "Projeto Autoral",
+    "subtitle": "Interface redesenhada para simplificar a matrícula online dos alunos da UFRN, integrando porcentagens, indicações de turmas e filtros rápidos em um único fluxo.",
+    "client": "Projeto Pessoal",
+    "role": "Product & UI/UX Designer",
+    "period": "2026",
+    "heroMedia": {
+      "type": "image",
+      "src": "/projects/gradeplus/home.webp",
+      "alt": "Tela inicial de busca e filtros do GradePlus"
+    },
+    "overviewTitle": "O principal desafio",
+    "overview": [
+      "Melhorar a interface onde os alunos da UFRN realizam a matrícula online. O objetivo é transformar uma etapa hoje cansativa e fragmentada em uma experiência clara, direta e intuitiva para montar a grade do semestre sem atrito."
+    ],
+    "sections": [
+      {
+        "id": "pontos-novos",
+        "title": "Pontos novos",
+        "description": "Integrar em uma mesma experiência o sistema que exibe porcentagens de aprovação e concorrência, as indicações das turmas mais bem avaliadas e o fluxo de matrícula online, tudo apoiado por filtros simples e fáceis de acessar.",
+        "highlights": [
+          "Porcentagens integradas",
+          "Indicações de turmas",
+          "Matrícula online",
+          "Filtros simples"
+        ],
+        "media": []
+      },
+      {
+        "id": "resultado",
+        "title": "Resultado",
+        "description": "A interface combina busca unificada com filtros por curso, semestre, departamento e horários, listas com porcentagens e indicações ao lado da grade semanal em tempo real, além de acesso rápido integrado ao SIGAA.",
+        "mosaic": [
+          {
+            "layout": "full",
+            "items": [
+              {
+                "type": "image",
+                "src": "/projects/gradeplus/grade.webp",
+                "alt": "Montagem de grade com porcentagens, indicações e preview de horários no GradePlus",
+                "caption": "Montagem da grade com porcentagens, indicações e horários em tempo real"
+              }
+            ]
+          },
+          {
+            "layout": "pair",
+            "items": [
+              {
+                "type": "image",
+                "src": "/projects/gradeplus/home.webp",
+                "alt": "Tela inicial de matrícula online com busca, filtros e atalhos no GradePlus",
+                "caption": "Busca unificada, filtros simples e atalhos por curso"
+              },
+              {
+                "type": "image",
+                "src": "/projects/gradeplus/login.webp",
+                "alt": "Tela de login com integração ao SIGAA no GradePlus",
+                "caption": "Login integrado ao SIGAA"
+              }
+            ]
+          }
+        ],
+        "media": []
+      }
+    ]
+  },
+  {
+    "id": "niko",
+    "title": "NIKO (INCRA & CSA)",
+    "projectType": "Projeto B2B",
+    "subtitle": "Sistema web responsivo desenvolvido na parceria CSA (IFRN) e INCRA para organizar a esteira de digitalização documental e gerenciar operadores por turno e fase.",
+    "client": "CSA + INCRA",
+    "role": "UI/UX & Front-end Developer",
+    "period": "2022 – 2024",
+    "figmaUrl": "https://www.figma.com/design/mjZgPxGU2l4k2H1t1oJa89/Prot%C3%B3tipos?node-id=0-1",
+    "heroMedia": {
+      "type": "image",
+      "src": "/projects/niko/fase-preparo-desktop.webp",
+      "alt": "Tela da fase de Preparo com esteira de lotes no NIKO"
+    },
+    "overviewTitle": "O principal desafio",
+    "overview": [
+      "Estruturar o processo de digitalização documental e o gerenciamento de pessoas em uma operação com dezenas de lotes circulando simultaneamente entre recepção, preparo, catalogação, digitalização e entrega. Era preciso dar visibilidade rápida tanto para operadores na bancada quanto para coordenadores acompanhando turnos e gargalos."
+    ],
+    "sections": [
+      {
+        "id": "esteira-pessoas",
+        "title": "Esteira e gestão de pessoas",
+        "description": "Cada etapa da digitalização recebeu cor e ícone próprios para reconhecimento imediato no dia a dia. A arquitetura separa a rotina de coordenadores, com alocação por turno e painel gerencial, da visão de operadores, pensada para pegar, pausar e concluir lotes com poucos cliques.",
+        "highlights": [
+          "6 fases identificadas por cor",
+          "Gestão por turno e operador",
+          "Controle de lotes e pendências",
+          "Desktop e mobile"
+        ],
+        "media": []
+      },
+      {
+        "id": "resultado",
+        "title": "Resultado",
+        "description": "O NIKO entregou uma operação integrada em desktop e mobile, reunindo o painel de remessas e lotes por período, a distribuição de atividades por turno, o controle completo de cada lote e telas mobile ágeis para o trabalho diário.",
+        "mosaic": [
+          {
+            "layout": "full",
+            "items": [
+              {
+                "type": "image",
+                "src": "/projects/niko/painel-2-desktop.webp",
+                "alt": "Painel gerencial do NIKO com filtro por período, remessas e status dos lotes",
+                "caption": "Painel gerencial com acompanhamento de remessas e lotes por fase"
+              }
+            ]
+          },
+          {
+            "layout": "pair",
+            "items": [
+              {
+                "type": "image",
+                "src": "/projects/niko/atividades-coordenador-desktop.webp",
+                "alt": "Tela de atividades organizadas por turno da manhã e tarde no NIKO",
+                "caption": "Gerenciamento de pessoas e lotes por turno"
+              },
+              {
+                "type": "image",
+                "src": "/projects/niko/lote-coordenador-desktop.webp",
+                "alt": "Tela de detalhes de lote com responsáveis, observações e ações de fase no NIKO",
+                "caption": "Detalhamento de lote, responsáveis e histórico de observações"
+              }
+            ]
+          },
+          {
+            "layout": "trio",
+            "items": [
+              {
+                "type": "image",
+                "src": "/projects/niko/fases-mobile.webp",
+                "alt": "Visão geral das seis fases da esteira no mobile do NIKO",
+                "caption": "Visão das fases no mobile"
+              },
+              {
+                "type": "image",
+                "src": "/projects/niko/home-mobile.webp",
+                "alt": "Tela de lotes disponíveis e pausados no mobile do NIKO",
+                "caption": "Lotes disponíveis e em pausa"
+              },
+              {
+                "type": "image",
+                "src": "/projects/niko/recepcao-mobile.webp",
+                "alt": "Histórico de remessas e observações no mobile do NIKO",
+                "caption": "Histórico de remessas no mobile"
+              }
+            ]
+          }
+        ],
+        "media": []
+      }
+    ]
+  }
+]

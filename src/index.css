@@ -1,60 +1,60 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant hover (&:hover);
 
 :root {
-  --radius: 0.625rem;
-  --background: #f3f5f9;
-  --foreground: #1c2333;
-  --card: #dfe4ee;
-  --card-foreground: #1c2333;
+  --radius: 0.75rem;
+  --background: #f6f6f7;
+  --foreground: #161618;
+  --card: #ffffff;
+  --card-foreground: #161618;
   --popover: #ffffff;
-  --popover-foreground: #1c2333;
-  --primary: #1f5bff;
+  --popover-foreground: #161618;
+  --primary: #18181b;
   --primary-foreground: #ffffff;
-  --secondary: #e6eaf2;
-  --secondary-foreground: #1c2333;
-  --muted: #e6eaf2;
-  --muted-foreground: #6b7385;
-  --accent: #e6eaf2;
-  --accent-foreground: #1c2333;
-  --destructive: #e5484d;
-  --border: #dde2eb;
-  --input: #dde2eb;
-  --ring: #1f5bff;
+  --secondary: #efeff1;
+  --secondary-foreground: #161618;
+  --muted: #efeff1;
+  --muted-foreground: #6f6f76;
+  --accent: #e9e9ec;
+  --accent-foreground: #161618;
+  --destructive: #d9383a;
+  --border: #e6e6e9;
+  --input: #e2e2e6;
+  --ring: #18181b;
 }
 
 .dark {
-  --background: #0d111a;
-  --foreground: #eef2f9;
-  --card: #171d2b;
-  --card-foreground: #eef2f9;
-  --popover: #141926;
-  --popover-foreground: #eef2f9;
-  --primary: #3b72ff;
-  --primary-foreground: #ffffff;
-  --secondary: #1c2333;
-  --secondary-foreground: #eef2f9;
-  --muted: #1c2333;
-  --muted-foreground: #8b95a9;
-  --accent: #1c2333;
-  --accent-foreground: #eef2f9;
+  --background: #0b0b0d;
+  --foreground: #f4f4f6;
+  --card: #141417;
+  --card-foreground: #f4f4f6;
+  --popover: #141417;
+  --popover-foreground: #f4f4f6;
+  --primary: #f4f4f6;
+  --primary-foreground: #121214;
+  --secondary: #1c1c20;
+  --secondary-foreground: #f4f4f6;
+  --muted: #1c1c20;
+  --muted-foreground: #94949c;
+  --accent: #222227;
+  --accent-foreground: #f4f4f6;
   --destructive: #e5484d;
-  --border: #232b3e;
-  --input: #232b3e;
-  --ring: #3b72ff;
+  --border: #242429;
+  --input: #27272d;
+  --ring: #f4f4f6;
 }
 
 @theme inline {
-  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', ui-monospace, monospace;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 10px);
+  --radius-2xl: calc(var(--radius) + 8px);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -77,33 +77,91 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border outline-ring/30;
   }
   html {
     scroll-behavior: smooth;
   }
   body {
     @apply bg-background text-foreground font-sans antialiased transition-colors duration-300;
-    font-feature-settings: 'cv11', 'ss01';
+    font-feature-settings: 'cv11', 'ss01', 'cv01';
   }
   ::selection {
     @apply bg-primary text-primary-foreground;
   }
 }
 
+/* Shopify Polaris / Editions surface utilities */
+.polaris-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.03),
+    0 4px 12px -4px rgba(0, 0, 0, 0.04);
+}
+
+.dark .polaris-card {
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.35),
+    0 8px 24px -8px rgba(0, 0, 0, 0.45);
+}
+
+.polaris-floating-bar {
+  background-color: color-mix(in srgb, var(--popover) 88%, transparent);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 10px 28px -10px rgba(0, 0, 0, 0.12);
+}
+
+.dark .polaris-floating-bar {
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.45),
+    0 12px 32px -10px rgba(0, 0, 0, 0.65);
+}
+
+.polaris-pill-primary {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    0 1px 2px rgba(0, 0, 0, 0.14);
+}
+
+.dark .polaris-pill-primary {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    0 1px 2px rgba(0, 0, 0, 0.35);
+}
+
+.shopify-grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.032) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.032) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.dark .shopify-grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    translate: 0 10px;
   }
   to {
     opacity: 1;
-    transform: none;
+    translate: 0 0;
   }
 }
 
 .animate-fade-up {
-  animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: fade-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) backwards;
 }
 
 @keyframes sun-rays-spin {

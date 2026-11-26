@@ -1,21 +1,12 @@
 import type { CSSProperties } from 'react'
 
-export type CoverMockupVariant = 'single-closeup' | 'duo-overlap' | 'desktop-mobile'
-export type CoverMockupTheme = 'light' | 'dark'
+import type { CoverMockupConfig, CoverMockupTheme } from '@/types/portfolio'
 
-export type CoverMockupConfig = {
-  variant: CoverMockupVariant
-  theme?: CoverMockupTheme
-  primary: string
-  /** Exact aspect ratio of the primary screen (e.g. '1280 / 832' or '16 / 9') so the image is never distorted or unevenly cropped. */
-  primaryAspect?: string
-  secondary?: string
-  secondaryAspect?: string
-}
+export type { CoverMockupConfig, CoverMockupTheme, CoverMockupVariant } from '@/types/portfolio'
 
 /**
- * Clean, high-definition frame with zero 3D perspective blur.
- * Supports both light clay-blue and dark anodized slate hardware bezels.
+ * Clean, high-definition studio hardware frame in Shopify neutral soft tones
+ * (soft alabaster/titanium light bezel or deep graphite/obsidian dark bezel).
  */
 function CrispScreenFrame({
   src,
@@ -39,22 +30,23 @@ function CrispScreenFrame({
       style={style}
       className={
         isDark
-          ? `rounded-[15px] bg-[#252b40] p-[6.5px] shadow-[0_28px_56px_-12px_rgba(0,0,0,0.75),0_8px_20px_-4px_rgba(0,0,0,0.55),inset_0_1.5px_0_rgba(255,255,255,0.18)] ring-1 ring-[#38415e] ${className}`
-          : `rounded-[15px] bg-[#c1cdf0] p-[6.5px] shadow-[0_24px_48px_-14px_rgba(18,30,62,0.28),0_6px_16px_-4px_rgba(18,30,62,0.14),inset_0_1.5px_0_rgba(255,255,255,0.85)] ring-1 ring-[#a9b8e2] ${className}`
+          ? `rounded-[14px] bg-[#222226] p-[5.5px] shadow-[0_28px_56px_-14px_rgba(0,0,0,0.8),0_8px_20px_-6px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.14)] ring-1 ring-white/[0.1] ${className}`
+          : `rounded-[14px] bg-[#ffffff] p-[5.5px] shadow-[0_22px_48px_-14px_rgba(0,0,0,0.14),0_6px_16px_-6px_rgba(0,0,0,0.08),inset_0_1px_0_rgba(255,255,255,0.95)] ring-1 ring-black/[0.08] ${className}`
       }
     >
       <div
         style={{ aspectRatio: aspect }}
         className={
           isDark
-            ? 'relative w-full overflow-hidden rounded-[9.5px] bg-[#141416] ring-1 ring-white/10'
-            : 'relative w-full overflow-hidden rounded-[9.5px] bg-white ring-1 ring-black/10'
+            ? 'relative w-full overflow-hidden rounded-[9px] bg-[#101012] ring-1 ring-white/[0.08]'
+            : 'relative w-full overflow-hidden rounded-[9px] bg-white ring-1 ring-black/[0.06]'
         }
       >
         <img
           src={src}
           alt={alt}
           loading="lazy"
+          decoding="async"
           className="block size-full object-cover object-top select-none"
         />
       </div>
@@ -84,27 +76,27 @@ function CrispPhoneFrame({
       style={style}
       className={
         isDark
-          ? `rounded-[22px] bg-[#252b40] p-[6px] shadow-[0_28px_54px_-12px_rgba(0,0,0,0.78),0_8px_20px_-4px_rgba(0,0,0,0.55),inset_0_1.5px_0_rgba(255,255,255,0.18)] ring-1 ring-[#38415e] ${className}`
-          : `rounded-[22px] bg-[#c1cdf0] p-[6px] shadow-[0_26px_48px_-12px_rgba(18,30,62,0.34),0_8px_18px_-4px_rgba(18,30,62,0.18),inset_0_1.5px_0_rgba(255,255,255,0.85)] ring-1 ring-[#a9b8e2] ${className}`
+          ? `rounded-[22px] bg-[#222226] p-[5px] shadow-[0_28px_54px_-14px_rgba(0,0,0,0.82),0_8px_20px_-6px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.16)] ring-1 ring-white/[0.1] ${className}`
+          : `rounded-[22px] bg-[#ffffff] p-[5px] shadow-[0_24px_48px_-14px_rgba(0,0,0,0.16),0_8px_18px_-6px_rgba(0,0,0,0.08),inset_0_1px_0_rgba(255,255,255,0.95)] ring-1 ring-black/[0.08] ${className}`
       }
     >
-      {/* Dynamic Island pill */}
       <span
         aria-hidden
-        className="pointer-events-none absolute top-[10px] left-1/2 z-10 h-[4.5px] w-[24px] -translate-x-1/2 rounded-full bg-[#081217]/85"
+        className="pointer-events-none absolute top-[9px] left-1/2 z-10 h-[4px] w-[22px] -translate-x-1/2 rounded-full bg-[#161618]/85"
       />
       <div
         style={{ aspectRatio: aspect }}
         className={
           isDark
-            ? 'relative w-full overflow-hidden rounded-[16px] bg-[#141416] ring-1 ring-white/10'
-            : 'relative w-full overflow-hidden rounded-[16px] bg-white ring-1 ring-black/10'
+            ? 'relative w-full overflow-hidden rounded-[17px] bg-[#101012] ring-1 ring-white/[0.08]'
+            : 'relative w-full overflow-hidden rounded-[17px] bg-white ring-1 ring-black/[0.06]'
         }
       >
         <img
           src={src}
           alt={alt}
           loading="lazy"
+          decoding="async"
           className="block size-full object-cover object-top select-none"
         />
       </div>
@@ -134,17 +126,17 @@ export function CoverMockup({
     <div
       className={
         isDark
-          ? 'relative size-full overflow-hidden bg-[#0e1222] select-none'
-          : 'relative size-full overflow-hidden bg-[#dce1ec] select-none'
+          ? 'relative size-full overflow-hidden bg-[#101012] select-none'
+          : 'relative size-full overflow-hidden bg-[#f1f1f3] select-none'
       }
     >
-      {/* Studio backdrop — light clay studio or deep dark obsidian/navy studio */}
+      {/* Neutral studio radial backdrop */}
       <div
         aria-hidden
         className={
           isDark
-            ? 'pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_32%,#1e2540_0%,#111528_64%,#0b0e1a_100%)]'
-            : 'pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,#eef2f9_0%,#dce1ec_68%,#d1d8e8_100%)]'
+            ? 'pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_28%,#202026_0%,#121215_62%,#0b0b0d_100%)]'
+            : 'pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,#fafafa_0%,#f1f1f3_66%,#e8e8ec_100%)]'
         }
       />
 
@@ -155,54 +147,50 @@ export function CoverMockup({
             alt={title}
             aspect={primaryAspect}
             theme={theme}
-            className="absolute top-[7%] left-[6%] w-[96%] transition-transform duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-[1.015]"
+            className="absolute top-[8%] left-[7%] w-[94%] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1 group-hover:scale-[1.015]"
           />
         </div>
       )}
 
       {variant === 'duo-overlap' && (
         <div className="relative size-full">
-          {/* Back right screen — large, bleeds off the right edge, overlaps ~14% with the front screen */}
           {secondary && (
             <CrispScreenFrame
               src={secondary}
               alt={title}
               aspect={secondaryAspect}
               theme={theme}
-              className="absolute top-[6%] -right-[14%] z-10 w-[72%] transition-transform duration-500 ease-out group-hover:translate-x-1 group-hover:-translate-y-0.5"
+              className="absolute top-[8%] -right-[14%] z-10 w-[76%] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-1 group-hover:-translate-y-0.5"
             />
           )}
 
-          {/* Front left screen — inset from the left so the full sidebar is clearly visible, bleeds at the bottom */}
           <CrispScreenFrame
             src={primary}
             alt={title}
             aspect={primaryAspect}
             theme={theme}
-            className="absolute -bottom-[9%] left-[3.5%] z-20 w-[68%] transition-transform duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-[1.015]"
+            className="absolute bottom-[6%] left-[5%] z-20 w-[74%] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1 group-hover:scale-[1.015]"
           />
         </div>
       )}
 
       {variant === 'desktop-mobile' && (
         <div className="relative size-full">
-          {/* Large desktop screen — inset on the left so the frame & left margin stay clean, bleeds slightly at bottom */}
           <CrispScreenFrame
             src={primary}
             alt={title}
             aspect={primaryAspect}
             theme={theme}
-            className="absolute top-[7%] left-[3.5%] z-10 w-[78%] transition-transform duration-500 ease-out group-hover:-translate-y-0.5 group-hover:scale-[1.015]"
+            className="absolute top-[10%] left-[5%] z-10 w-[80%] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-0.5 group-hover:scale-[1.015]"
           />
 
-          {/* Overlapping mobile screen on the right — overlaps ~12% over the right edge of the desktop frame and bleeds at bottom */}
           {secondary && (
             <CrispPhoneFrame
               src={secondary}
               alt={`${title} Mobile`}
               aspect={config.secondaryAspect || '393 / 812'}
               theme={theme}
-              className="absolute right-[3.5%] -bottom-[10%] z-20 w-[26.5%] transition-transform duration-500 ease-out group-hover:-translate-y-1.5"
+              className="absolute right-[5%] bottom-[4%] z-20 w-[29%] transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:-translate-y-1.5"
             />
           )}
         </div>
