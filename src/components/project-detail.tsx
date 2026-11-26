@@ -2,11 +2,28 @@ import { useEffect, useMemo, useState } from 'react'
 import { ArrowLeft, ArrowRight, ArrowUpRight, Globe } from 'lucide-react'
 
 import { Footer } from '@/components/footer'
+import { ExpandCornersIcon, MediaLightbox } from '@/components/media-lightbox'
 import { ThemeToggle } from '@/components/theme-toggle'
-import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog'
 import { getNextProject } from '@/data/work'
 import { cn } from '@/lib/utils'
 import type { ProjectData, ProjectMedia } from '@/types/portfolio'
+
+function ExpandBadge({ className }: { className?: string }) {
+  return (
+    <span
+      aria-hidden
+      className={cn(
+        'pointer-events-none absolute top-3 right-3 grid size-8 place-items-center rounded-[9px]',
+        'border border-black/[0.08] bg-white/92 text-[#161618] shadow-[0_4px_14px_-4px_rgba(0,0,0,0.16)] backdrop-blur-md',
+        'dark:border-white/[0.12] dark:bg-[#141417]/90 dark:text-[#f4f4f6] dark:shadow-[0_6px_18px_-4px_rgba(0,0,0,0.6)]',
+        'opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100',
+        className,
+      )}
+    >
+      <ExpandCornersIcon className="size-4" />
+    </span>
+  )
+}
 
 function MediaFrame({
   media,
@@ -177,12 +194,7 @@ export function ProjectDetail({
                   priority
                   imgClassName="h-auto w-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.015]"
                 />
-                <span
-                  aria-hidden
-                  className="pointer-events-none absolute right-3.5 bottom-3.5 rounded-full border border-black/[0.08] bg-white/92 px-3 py-1 font-mono text-[10px] tracking-wider text-[#161618] uppercase opacity-0 backdrop-blur-md transition-opacity duration-200 group-hover:opacity-100 dark:border-white/[0.1] dark:bg-[#141417]/90 dark:text-[#f4f4f6]"
-                >
-                  Ampliar
-                </span>
+                <ExpandBadge />
               </button>
             </div>
 
@@ -287,12 +299,7 @@ export function ProjectDetail({
                                         media={media}
                                         imgClassName="size-full object-cover object-top transition-transform duration-600 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.02]"
                                       />
-                                      <span
-                                        aria-hidden
-                                        className="pointer-events-none absolute right-2.5 bottom-2.5 rounded-full border border-black/[0.08] bg-white/92 px-2.5 py-0.5 font-mono text-[9.5px] tracking-wider text-[#161618] uppercase opacity-0 backdrop-blur-md transition-opacity duration-200 group-hover:opacity-100 dark:border-white/[0.1] dark:bg-[#141417]/90 dark:text-[#f4f4f6]"
-                                      >
-                                        Ampliar
-                                      </span>
+                                      <ExpandBadge className="top-2.5 right-2.5 size-7 rounded-[8px]" />
                                     </div>
                                   </button>
 
@@ -338,21 +345,18 @@ export function ProjectDetail({
                                 )}
                               />
 
-                              <div
-                                aria-hidden
-                                className="pointer-events-none absolute inset-x-3 bottom-3 flex items-center justify-between gap-2 opacity-0 transition-opacity duration-200 group-hover:opacity-100"
-                              >
-                                {media.caption ? (
+                              <ExpandBadge />
+
+                              {media.caption && (
+                                <div
+                                  aria-hidden
+                                  className="pointer-events-none absolute inset-x-3 bottom-3 flex opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-visible:opacity-100"
+                                >
                                   <span className="truncate rounded-full border border-black/[0.08] bg-white/92 px-3 py-1 text-[11.5px] font-medium text-[#161618] backdrop-blur-md dark:border-white/[0.1] dark:bg-[#141417]/92 dark:text-[#f4f4f6]">
                                     {media.caption}
                                   </span>
-                                ) : (
-                                  <span />
-                                )}
-                                <span className="shrink-0 rounded-full border border-black/[0.08] bg-white/92 px-2.5 py-1 font-mono text-[9.5px] tracking-wider text-[#161618] uppercase backdrop-blur-md dark:border-white/[0.1] dark:bg-[#141417]/92 dark:text-[#f4f4f6]">
-                                  Ampliar
-                                </span>
-                              </div>
+                                </div>
+                              )}
                             </button>
                           )
 
@@ -464,12 +468,7 @@ export function ProjectDetail({
                                     />
                                   )}
 
-                                  <span
-                                    aria-hidden
-                                    className="pointer-events-none absolute right-3.5 bottom-3.5 rounded-full border border-black/[0.08] bg-white/92 px-3 py-1 font-mono text-[10px] tracking-wider text-[#161618] uppercase opacity-0 backdrop-blur-md transition-opacity duration-200 group-hover:opacity-100 dark:border-white/[0.1] dark:bg-[#141417]/90 dark:text-[#f4f4f6]"
-                                  >
-                                    Ampliar
-                                  </span>
+                                  <ExpandBadge />
                                 </div>
                               </button>
 
@@ -554,24 +553,19 @@ export function ProjectDetail({
       </article>
 
       {/* Lightbox Dialog */}
-      <Dialog open={!!zoomMedia} onOpenChange={(open) => !open && setZoomMedia(null)}>
-        <DialogContent className="max-h-[92svh] w-fit max-w-[92vw] overflow-y-auto p-2.5 sm:max-w-[92vw] lg:max-w-[1280px]">
-          <DialogTitle className="sr-only">{zoomMedia?.alt}</DialogTitle>
-          {zoomMedia && (
-            <div className="flex flex-col items-center">
-              <MediaFrame
-                media={zoomMedia}
-                imgClassName="max-h-[82svh] w-auto max-w-full rounded-[14px] object-contain"
-              />
-              {zoomMedia.caption && (
-                <p className="px-2 pt-2.5 pb-1 text-center text-[12px] text-muted-foreground">
-                  {zoomMedia.caption}
-                </p>
-              )}
-            </div>
-          )}
-        </DialogContent>
-      </Dialog>
+      <MediaLightbox
+        media={
+          zoomMedia
+            ? {
+                type: zoomMedia.type,
+                src: zoomMedia.src,
+                alt: zoomMedia.alt,
+                caption: zoomMedia.caption,
+              }
+            : null
+        }
+        onClose={() => setZoomMedia(null)}
+      />
 
       <Footer />
     </div>

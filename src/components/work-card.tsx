@@ -2,6 +2,7 @@ import { useEffect, useRef, type MouseEvent } from 'react'
 import { ArrowUpRight } from 'lucide-react'
 
 import { CoverMockup } from '@/components/cover-mockup'
+import { ExpandCornersIcon } from '@/components/media-lightbox'
 import { snippets } from '@/components/snippets'
 import { buildProjectPath, isModifiedClick, navigateTo } from '@/lib/router'
 import { cn } from '@/lib/utils'
@@ -112,7 +113,7 @@ export function WorkCard({
           }
         : {})}
       className={cn(
-        'group relative block w-full overflow-hidden rounded-[20px] text-left outline-none',
+        'group relative isolate block w-full overflow-hidden rounded-[20px] text-left outline-none',
         'ring-1 ring-black/[0.08] transition-[transform,box-shadow] duration-350 ease-[cubic-bezier(0.22,1,0.36,1)]',
         'hover:-translate-y-1 hover:scale-[1.02] hover:shadow-[0_22px_48px_-14px_rgba(0,0,0,0.2)] hover:ring-black/[0.22]',
         'focus-visible:ring-2 focus-visible:ring-foreground/35',
@@ -123,7 +124,7 @@ export function WorkCard({
       )}
     >
       {/* Full-bleed media layer */}
-      <div className="relative size-full overflow-hidden">
+      <div className="relative size-full overflow-hidden rounded-[inherit]">
         {tile.mockup ? (
           <CoverMockup config={tile.mockup} title={tile.title} />
         ) : tile.media ? (
@@ -177,8 +178,11 @@ export function WorkCard({
               interativo
             </span>
           ) : (
-            <span className="shrink-0 font-mono text-[10px] tracking-wider text-muted-foreground uppercase">
-              ampliar
+            <span
+              aria-label="Ampliar"
+              className="grid size-6 shrink-0 place-items-center rounded-[7px] bg-secondary text-foreground transition-transform duration-300 group-hover:scale-105"
+            >
+              <ExpandCornersIcon className="size-3.5" />
             </span>
           )}
         </div>

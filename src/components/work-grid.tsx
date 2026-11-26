@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 
-import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog'
+import { MediaLightbox } from '@/components/media-lightbox'
 import { WorkCard } from '@/components/work-card'
 import { gallery } from '@/data/work'
 import { cn } from '@/lib/utils'
@@ -163,23 +163,20 @@ export function WorkGrid() {
       </div>
 
       {/* Lightbox for standalone isolated UI showcases */}
-      <Dialog open={Boolean(zoomTile)} onOpenChange={(open) => !open && setZoomTile(null)}>
-        <DialogContent className="w-fit max-w-[calc(100vw-2rem)] overflow-hidden rounded-[20px] border-border bg-card p-2 shadow-2xl sm:max-w-[1280px]">
-          <DialogTitle className="sr-only">{zoomTile?.title ?? 'Visualização ampliada'}</DialogTitle>
-          {zoomTile?.media && (
-            <div className="flex flex-col items-center">
-              <img
-                src={zoomTile.media.src}
-                alt={zoomTile.media.alt}
-                className="block max-h-[82svh] w-auto max-w-full rounded-[14px] object-contain"
-              />
-              <p className="w-full px-3 pt-2.5 pb-1 text-center text-[12.5px] text-muted-foreground">
-                {zoomTile.title} · {zoomTile.tag}
-              </p>
-            </div>
-          )}
-        </DialogContent>
-      </Dialog>
+      <MediaLightbox
+        media={
+          zoomTile?.media
+            ? {
+                type: zoomTile.media.type,
+                src: zoomTile.media.src,
+                alt: zoomTile.media.alt,
+                poster: zoomTile.media.poster,
+                caption: `${zoomTile.title} · ${zoomTile.tag}`,
+              }
+            : null
+        }
+        onClose={() => setZoomTile(null)}
+      />
     </section>
   )
 }
